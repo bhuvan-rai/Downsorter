@@ -32,13 +32,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 
 ## Install
 
-### From source
-
-```bash
-pip install .
-```
-
-### From PyPI
+### From PyPI ( run this in powershell)
 
 ```bash
 pip install downsorter
@@ -51,16 +45,16 @@ pip install downsorter
 This is the safest way to run the tool first.
 
 ```bash
-downsorter --folder "C:\Users\YourName\Downloads"
+downsorter --folder "C:\Users\YourName\Downloads"(or put path inside "" of whatever folder you want to sort)
 ```
 
 ### Actually move files
 
 ```bash
-downsorter --folder "C:\Users\YourName\Downloads" --apply
+downsorter --folder "C:\Users\YourName\Downloads"(or put path inside "" of whatever folder you want to sort) --apply
 ```
 
-### Only move files older than 7 days
+### EG: Only move files older than 7 days ( default days is 0 , i.e no requirement)
 
 ```bash
 downsorter --folder "C:\Users\YourName\Downloads" --min-age-days 7 --apply
