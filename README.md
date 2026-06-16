@@ -28,7 +28,6 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 - `README.md` - project instructions
 - `pyproject.toml` - package metadata for PyPI
 - `LICENSE` - MIT license text
-- `movelogs.csv` - example move log file written by the script
 
 ## Install
 
