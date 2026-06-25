@@ -29,7 +29,6 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 - `pyproject.toml` - package metadata for PyPI
 - `LICENSE` - MIT license text
 
-
 ## Install
 
 ### From PyPI ( run this in powershell)
@@ -37,11 +36,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 ```bash
 pip install downsorter
 ```
-<<<<<<< HEAD
 or
-=======
-(try -> python -m pip install downsorter if above fails)
->>>>>>> 67ef57bb4ad430e50e5366aa84adc1161890a8f6
 
 ```bash
 python -m pip install downsorter
@@ -52,22 +47,21 @@ python -m pip install downsorter
 ### Preview what will happen
 
 This is the safest way to run the tool first.
-*NOTE: to test the downloads folder , by default it checks/cleans the downloads folder , so if you wish you can skip --folder to check the downloads folder by default , but to apply you will have to use "downsorter --apply" to apply it to the downloads folder*
 
 ```bash
-downsorter --folder "Path of folder to sort enclosed in double quotes like this"
+downsorter --folder "C:\Users\YourName\Downloads"(or put path inside "" of whatever folder you want to sort)
 ```
 
 ### Actually move files
 
 ```bash
-downsorter --folder "Path of folder to sort enclosed in double quotes like this" --apply
+downsorter --folder "C:\Users\YourName\Downloads"(or put path inside "" of whatever folder you want to sort) --apply
 ```
 
 ### Example: Only move files older than 7 days ( default days is 0 , i.e no requirement)
 
 ```bash
-downsorter --folder "Path of folder to sort enclosed in double quotes like this" --min-age-days 7 --apply
+downsorter --folder "C:\Users\YourName\Downloads" --min-age-days 7 --apply
 ```
 
 ## Options
@@ -106,8 +100,8 @@ The project currently sorts files into:
 Run this to preview then apply:
 
 ```bash
-downsorter --folder "Path of folder to sort enclosed in double quotes like this"
-downsorter --folder "Path of folder to sort enclosed in double quotes like this" --apply
+downsorter --folder "C:\Users\YourName\Downloads"
+downsorter --folder "C:\Users\YourName\Downloads" --apply
 ```
 
 ## License
