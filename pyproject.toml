@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "downsorter"
-version = "0.2.0"
+version = "1.0.0"
 description = "Organize files by extension into category folders from the command line."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-    { name = "Your Name" }
+    { name = "bhuvan rai" }
 ]
 keywords = ["downloads", "file sorting", "organization", "cli"]
 classifiers = [

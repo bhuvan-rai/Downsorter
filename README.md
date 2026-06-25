@@ -82,17 +82,18 @@ downsorter --folder "C:\Users\YourName\Downloads" --min-age-days 7 --apply
 
 The project currently sorts files into:
 
-- `Images` (.jpg, .jpeg, .png, .webp, .bmp)
-- `PDFs` (.pdf)
-- `Documents` (.doc, .docx, .txt, .md, .rtf)
-- `Spreadsheets` (.xls, .xlsx, .csv, .tsv)
-- `PPTs` (.ppt, .pptx)
-- `Archives` (.rar, .zip, .7z, .tar, .gz)
-- `Installers` (.exe, .msi)
-- `Code` (.py, .js, .html, .css, .json, .xml, .cpp, .java)
-- `Audio` (.mp3, .wav, .flac, .aac, .ogg)
-- `Videos` (.mp4, .gif, .mov, .mkv, .avi, .webm)
-- `Other` for everything else
+- `Images` : (.jpg , .jpeg , .png , .webp , .bmp )
+- `PDFs` : (.pdf )
+- `Documents` : (.doc , .docx , .txt , .md , .rtf , .epub , .log )
+- `Spreadsheets` : (.xls , .xlsx , .csv , .tsv )
+- `PPTs` : (.ppt , .pptx )
+- `Archives` : (.rar , .zip ,.7z , .tar , .gz , .iso , .tgz )
+- `Installers` : (.exe , .msi , .dmg , .app , .bat )
+- `Code` : (.py , .js , .html , .css , .json , .xml , .cpp , .java , .ts , .env , .cs , .sh )
+- `Audio` : (.mp3 , .wav , .flac , .aac , .ogg , .m4a , .wma )
+- `Videos` : (.mp4 , .gif , .mov , .mkv , .avi , .webm ) 
+- `CAD` : (.dwg , .catpart , .sldprt , .step , .iges , .stl , .obj , .blend , .fbx , .gltf , .glb )
+- `Designs/Fonts` : (.psd , .ai , .svg , .ttf , .otf , .woff2 )
 
 ## Example
 
