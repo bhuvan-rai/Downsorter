@@ -102,7 +102,7 @@ class Sorter:
         action = "Moving" if apply else "Would move"
         for plan in plans:
             file_name = plan.source.name
-            destination = plan.destination.parent.name + "\\" + plan.destination.name
+            destination = str(plan.destination.relative_to(self.downloads_folder))
             print(action + ": " + file_name + " -> " + destination)
 
     def apply_plan(self, plans: list[MovePlan]):
@@ -117,7 +117,7 @@ def parse_args():
     parser.add_argument(
         "--folder",
         type=Path,
-        default=(Path.home()/ "Downloads"),
+        default=(Path.home() / "Downloads"),
         help="Folder to clean . By default downloads folder"
     )
     parser.add_argument(
