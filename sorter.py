@@ -11,11 +11,11 @@ class MovePlan:
     destination: Path
 
 class Sorter:
-    categories: dict[str, list[str]] = {}
-    ignore_names: list[str] = []
     def __init__(self, downloads_folder: Path, minimum_days: int):
         self.downloads_folder = downloads_folder
         self.minimum_days = minimum_days
+        self.categories: dict[str, list[str]] = {}
+        self.ignore_names: list[str] = []
         self.load_config(Path(__file__).parent / "base.config.json")
 
     def add_extensions(self, category: str, extensions: list[str]):
