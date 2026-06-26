@@ -25,6 +25,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 ## Files
 
 - `sorter.py` - main CLI script and package entry point
+- `base.config.json` - default category and extension mapping
 - `README.md` - project instructions
 - `pyproject.toml` - package metadata for PyPI
 - `LICENSE` - MIT license text
