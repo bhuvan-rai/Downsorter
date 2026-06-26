@@ -97,7 +97,9 @@ downsorter --folder "C:\Users\YourName\Downloads" --min-age-days 7 --apply
 config.json:
 ```json
 {
-    "Certificates": [".cnf"]
+    "categories": {
+        "Code": [".asm"]
+    }
 }
 ```
 
@@ -107,11 +109,11 @@ downsorter --folder "C:\Users\YourName\Downloads" --config "C:\path\to\config.js
 
 ## Development
 
-To help develop the project, it is recommended to use a virtual Python enviornment.
+To help develop the project, it is recommended to use a virtual Python environment.
 The easiest way to do this is using `uv`.
 
 ```bash
-# Initalization
+# Initialization
 uv venv
 # uv will output a command after, please execute that here
 
