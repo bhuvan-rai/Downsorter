@@ -19,7 +19,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 | Platform | Support | Notes |
 | --- | --- | --- |
 | Windows 10/11 | Supported | Best tested platform for this project |
-| macOS | Supported | Working with Python 3.10+ |
+| macOS | Supported | Works with Python 3.10+ |
 | Linux | Supported | Works with Python 3.10+ |
 
 ## Files
