@@ -10,7 +10,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 - Preview mode so you can see changes before moving anything
 - Safe move mode with `--apply` to actually perform the file moves
 - Handles duplicate names by renaming files to `name (1).ext`, `name (2).ext`, etc.
-- Ignores common system files like `desktop.ini` and `thumbs.db`
+- Ignores common system files like `desktop.ini`, `thumbs.db`, and `.DS_Store`
 - Supports minimum file age filtering with `--min-age-days`
 - Works on Windows, macOS, and Linux with Python 3.10+
 
@@ -19,7 +19,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 | Platform | Support | Notes |
 | --- | --- | --- |
 | Windows 10/11 | Supported | Best tested platform for this project |
-| macOS | Supported | Works with Python 3.10+ |
+| macOS | Supported | Working with Python 3.10+ |
 | Linux | Supported | Works with Python 3.10+ |
 
 ## Files
@@ -31,7 +31,7 @@ Use it to clean up a messy folder, especially downloads, by moving images, docum
 
 ## Install
 
-### From PyPI ( run this in powershell)
+### From PyPI (run this in powershell)
 
 ```bash
 pip install downsorter
@@ -42,7 +42,34 @@ or
 python -m pip install downsorter
 ```
 (python3 instead of python if required)
-## Usage
+
+## Options
+
+- `--folder`: Folder to organize. Defaults to the current user's Downloads folder.
+- `--apply`: Actually move files. Without this flag, the script only previews the planned moves.
+- `--min-age-days`: Only move files that have not been modified for at least this many days.
+- `--config`: Path to a JSON config file that defines custom categories and extensions.
+
+## How it works
+
+1. The script scans the target folder for files.
+2. It matches each file extension against a category list.
+3. It builds a plan showing where each file would move.
+4. In preview mode, it only prints the plan.
+5. In apply mode, it creates category folders, moves files, and logs the results.
+
+## Categories
+
+The default categories and their associated file extensions can be found in [`base.config.json`](base.config.json)
+
+## Usage and Examples
+
+Run this to preview then apply:
+
+```bash
+downsorter --folder "C:\Users\YourName\Downloads"
+downsorter --folder "C:\Users\YourName\Downloads" --apply
+```
 
 ### Preview what will happen
 
@@ -64,44 +91,31 @@ downsorter --folder "C:\Users\YourName\Downloads"(or put path inside "" of whate
 downsorter --folder "C:\Users\YourName\Downloads" --min-age-days 7 --apply
 ```
 
-## Options
+### Example: Use a custom config file
 
-- `--folder`: Folder to organize. Defaults to the current user's Downloads folder.
-- `--apply`: Actually move files. Without this flag, the script only previews the planned moves.
-- `--min-age-days`: Only move files that have not been modified for at least this many days.
-
-## How it works
-
-1. The script scans the target folder for files.
-2. It matches each file extension against a category list.
-3. It builds a plan showing where each file would move.
-4. In preview mode, it only prints the plan.
-5. In apply mode, it creates category folders, moves files, and logs the results.
-
-## Categories
-
-The project currently sorts files into:
-
-- `Images` : (.jpg , .jpeg , .png , .webp , .bmp )
-- `PDFs` : (.pdf )
-- `Documents` : (.doc , .docx , .txt , .md , .rtf , .epub , .log )
-- `Spreadsheets` : (.xls , .xlsx , .csv , .tsv )
-- `PPTs` : (.ppt , .pptx )
-- `Archives` : (.rar , .zip ,.7z , .tar , .gz , .iso , .tgz )
-- `Installers` : (.exe , .msi , .dmg , .app , .bat )
-- `Code` : (.py , .js , .html , .css , .json , .xml , .cpp , .java , .ts , .env , .cs , .sh )
-- `Audio` : (.mp3 , .wav , .flac , .aac , .ogg , .m4a , .wma )
-- `Videos` : (.mp4 , .gif , .mov , .mkv , .avi , .webm ) 
-- `CAD` : (.dwg , .catpart , .sldprt , .step , .iges , .stl , .obj , .blend , .fbx , .gltf , .glb )
-- `Designs/Fonts` : (.psd , .ai , .svg , .ttf , .otf , .woff2 )
-
-## Example
-
-Run this to preview then apply:
+config.json:
+```json
+{
+    "Certificates": [".cnf"]
+}
+```
 
 ```bash
-downsorter --folder "C:\Users\YourName\Downloads"
-downsorter --folder "C:\Users\YourName\Downloads" --apply
+downsorter --folder "C:\Users\YourName\Downloads" --config "C:\path\to\config.json" --apply
+```
+
+## Development
+
+To help develop the project, it is recommended to use a virtual Python enviornment.
+The easiest way to do this is using `uv`.
+
+```bash
+# Initalization
+uv venv
+# uv will output a command after, please execute that here
+
+# Running
+uv run sorter.py
 ```
 
 ## License
