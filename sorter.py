@@ -20,14 +20,16 @@ class Sorter:
 
     def add_extensions(self, category: str, extensions: list[str]):
         if category in self.categories:
-            self.categories[category].extend(extensions)
+            for ext in extensions:
+                if ext not in self.categories[category]:
+                    self.categories[category].append(ext.lower())
         else:
-            self.categories[category] = extensions
+            self.categories[category] = [ext.lower() for ext in extensions]
 
     def add_ignored_names(self, names: list[str]):
         for n in names:
             if n not in self.ignore_names:
-                self.ignore_names.append(n)
+                self.ignore_names.append(n.lower())
 
     def category_in(self, file_path: Path) -> str:
         suffix = file_path.suffix.lower()
