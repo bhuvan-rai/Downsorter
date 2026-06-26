@@ -143,24 +143,31 @@ def main():
     args = parse_args()
     downloads_folder = args.folder.expanduser().resolve()
 
-    assert downloads_folder.exists(), f"Folder does not exist: {downloads_folder}"
+    if not downloads_folder.exists():
+        raise SystemExit(f"Folder does not exist: {downloads_folder}")
 
-    assert downloads_folder.is_dir(), f"Not a folder: {downloads_folder}"
+    if not downloads_folder.is_dir():
+        raise SystemExit(f"Not a folder: {downloads_folder}")
 
-    assert args.min_age_days >= 0, f"--min-age-days cannot be NEGATIVE"
+    if args.min_age_days < 0:
+        raise SystemExit(f"--min-age-days cannot be NEGATIVE")
 
-    planer = Sorter(downloads_folder, args.min_age_days)
+    planner = Sorter(downloads_folder, args.min_age_days)
 
     if args.config:
-        assert args.config.exists(), f"Config file does not exist: {args.config}"
-        assert args.config.is_file(), f"Not a file: {args.config}"
-        planer.load_config(args.config)
+        if not args.config.exists():
+            raise SystemExit(f"Config file does not exist: {args.config}")
 
-    plans = planer.build_plan()
-    planer.print_plan(plans, args.apply)
+        if not args.config.is_file():
+            raise SystemExit(f"Not a file: {args.config}")
+
+        planner.load_config(args.config)
+
+    plans = planner.build_plan()
+    planner.print_plan(plans, args.apply)
 
     if args.apply and plans:
-        planer.apply_plan(plans)
+        planner.apply_plan(plans)
         print("Done.")
     elif plans:
         print("Preview only. Run again with --apply to move these files")
